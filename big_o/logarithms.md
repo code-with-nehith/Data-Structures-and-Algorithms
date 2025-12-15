@@ -41,3 +41,26 @@ log₂(16) = 4
 ```
 
 **Key Insight**: If you have 16 items and keep dividing by 2, you need 4 steps to reach 1. This is log₂(16) = 4.
+
+##  The Comparison Table
+
+> This helps visualize the "Growth."
+
+| Input Size (n) | O(1) Steps | O(\log n) Steps | O(n) Steps | O(n^2) Steps |
+| --- | --- | --- | --- | --- |
+| *8* | 1 | 3 | 8 | 64 |
+| *16* | 1 | 4 | 16 | 256 |
+| *1,000* | 1 | 10 | 1,000 | 1,000,000 |
+| *1,000,000* | 1 | 20 | 1,000,000 | *1 Trillion (Crash!)* |
+
+## How to spot them in Code (The "Cheatsheet")*
+
+* *No Loops?* -> Usually *O(1)*.
+* *One Loop?* -> Usually *O(n)*.
+* *Loop inside a Loop?* -> Usually *O(n^2)*.
+* **Loop that cuts n in half (like i = i / 2)?** -> Usually *O(\log n)*.
+## We drop the constants
+
+* O(2n) is just O(n).
+* O(500n) is just O(n).
+* Why? Because as n goes to infinity, the difference between n and 500n is irrelevant compared to the difference between n and n^2. We only care about the *curve shape*.
